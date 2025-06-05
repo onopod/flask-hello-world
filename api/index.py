@@ -11,12 +11,14 @@ items = [
     {
         "id": 1,
         "title": "ＪＲ山手線 秋葉原駅 15階建 築3年",
-        "price": "143000"
+        "price": "143000",
+        "url": "https://fastly.picsum.photos/id/940/300/300.jpg?hmac=9fo8dMC0l9QtPjyCC143w0baGIDuMbaTh5O6KkrjGO8"
     }, 
     {
         "id": 2,
         "title": "パークルール大手町",
-        "price": "192000"
+        "price": "192000",
+        "url": "https://fastly.picsum.photos/id/880/300/300.jpg?hmac=oXC1t0jViOdGm6k__5wE0t1X0riYREqUm9z2CZuIfEI"
     }
 ]
 
@@ -31,6 +33,10 @@ def list():
 @app.route("/list2")
 def list2():
     return render_template("list2.html", items=items)
+
+@app.route("/list3")
+def list3():
+    return render_template("list3.html", items=items)
 
 @app.route("/detail/<int:id>")
 def detail(id):
