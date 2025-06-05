@@ -19,6 +19,12 @@ items = [
         "title": "パークルール大手町",
         "price": "192000",
         "url": "https://fastly.picsum.photos/id/880/300/300.jpg?hmac=oXC1t0jViOdGm6k__5wE0t1X0riYREqUm9z2CZuIfEI"
+    },
+    {
+        "id": 3,
+        "title": "テスト物件",
+        "price": "132000",
+        "url": "https://fastly.picsum.photos/id/880/300/300.jpg?hmac=oXC1t0jViOdGm6k__5wE0t1X0riYREqUm9z2CZuIfEI"
     }
 ]
 
