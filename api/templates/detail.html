@@ -1,0 +1,8 @@
+{% if item %}
+<div>
+    <h1>物件番号{{item.id}}：{{item.title}}</h1>
+    <p>{{item.price}}円</p>
+</div>
+{% else %}
+<p>物件は存在しません</p>
+{% endif %}

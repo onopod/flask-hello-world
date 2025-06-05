@@ -1,0 +1,7 @@
+<div>
+    {% for item in items %}
+    <h1>物件番号{{item.id}}：{{item.title}}</h1>
+    <p>{{item.price}}円</p>
+    <a href="/detail/{{item.id}}" target="blank">詳細</a>
+    {% endfor %}
+</div>
