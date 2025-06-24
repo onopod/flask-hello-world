@@ -1,28 +1,35 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# Flask + Render
 
-# Flask + Vercel
+このリポジトリは [Render](https://render.com/) 上で動作する Flask 3 のサンプルです。
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## 仕組み
 
-## Demo
+WSGI アプリケーションとして Flask を利用しており、`gunicorn` などの WSGI サーバーで実行できます。
 
-https://flask-python-template.vercel.app/
-
-## How it Works
-
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
+## ローカルでの実行
 
 ```bash
-npm i -g vercel
-vercel dev
+FLASK_APP=api/index.py flask run
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
+ブラウザで `http://localhost:5000` を開くとアプリが確認できます。
 
-## One-Click Deploy
+## Diary API
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+`/diary/diaries` 以下のエンドポイントで Diary テーブルへの CRUD 操作を行えます。
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+- `GET /diary/diaries` - すべてのダイアリーを取得
+- `GET /diary/diaries/<id>` - 指定 ID のダイアリーを取得
+- `POST /diary/diaries` - 新規ダイアリーを作成
+- `PUT /diary/diaries/<id>` - 既存ダイアリーを更新
+- `DELETE /diary/diaries/<id>` - ダイアリーを削除
+
+## Render へのデプロイ
+
+Render で Web サービスを作成し、以下の Start Command を指定します。
+
+```bash
+gunicorn api.index:app
+```
+
+これだけで Flask アプリが起動します。
